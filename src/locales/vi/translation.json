@@ -19,5 +19,6 @@
   "selectLanguage": "Chọn ngôn ngữ",
   "invalidAction": "Hành động không hợp lệ.",
   "nothingOnBalanceSheet": "Hiện tại bạn không có mục nào trong bảng cân đối của mình.",
-  "errorFileNotFound": "Lỗi: Không tìm thấy tệp - {{filePath}}"
+  "errorFileNotFound": "Lỗi: Không tìm thấy tệp - {{filePath}}",
+  "cancelSessionDueToNoPayment": "🔴 Thanh toán chưa được hoàn thành nên chúng tôi sẽ hủy phiên hiện tại."
 }

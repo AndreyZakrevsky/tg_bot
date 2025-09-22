@@ -46,8 +46,8 @@ class BotHandler {
         this.gate = null;
         this.sessionFreezed = false;
         this.price = VND_PRICE;
-        this.translate = i18next.getFixedT('en');
         this.buttonsMarker = ['0_button', '1_button', '2_button', '3_button'];
+        this.translate = i18next.getFixedT('en');
 
         this._setup();
         this._setupExchanges();
@@ -74,6 +74,7 @@ class BotHandler {
             console.log('SOME ERROR', error.message);
         }
 
+        ctx.reply(this.translate('cancelSessionDueToNoPayment'));
         this._clearSession();
     }
 
@@ -99,6 +100,7 @@ class BotHandler {
         await ctx.reply(this.translate('enteredAmount', { amount: userInput, convertedValue }));
         await ctx.replyWithPhoto({ source: filePath });
         await ctx.reply(this.translate('sessionStarted', { convertedValue, time: Math.floor(MAX_CHECKING_DURATION / 60000) }));
+        this._setDailyBalances(ctx, userInput);
 
         this._checkBalance(ctx, convertedValue, userInput);
     }
@@ -235,6 +237,8 @@ class BotHandler {
 
     _setup() {
         this.bot.command('start', async (ctx) => {
+            const languageCode = ctx?.session?.lang || 'en';
+            this.translate = i18next.getFixedT(languageCode);
             await ctx.reply(this.translate('welcome', { botName: ctx.botInfo.first_name || 'Bot' }));
             this._printMenu(ctx);
         });
@@ -263,6 +267,7 @@ class BotHandler {
 
         this.bot.action(/SET_LANG_(.+)/, async (ctx) => {
             const langCode = ctx.match[1];
+            ctx.session.lang = langCode;
             this.translate = i18next.getFixedT(langCode);
             this._printMenu(ctx);
         });
@@ -318,7 +323,7 @@ class BotHandler {
 }
 
 const exchanges = ['binance', 'bybit', 'gate'];
-const botHandler = new BotHandler(process.env.TELEGRAM_BOT_TOKEN, exchanges);
+const botHandler = new BotHandler(process.env.TG_TOKEN, exchanges);
 botHandler.launch();
 
 // https://emojipedia.org/en/search?q=crypto

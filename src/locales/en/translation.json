@@ -19,5 +19,6 @@
   "selectLanguage": "Select a language",
   "invalidAction": "Invalid action.",
   "nothingOnBalanceSheet": "You currently have no entries on your balance sheet.",
-  "errorFileNotFound": "Error: File not found - {{filePath}}"
+  "errorFileNotFound": "Error: File not found - {{filePath}}",
+  "cancelSessionDueToNoPayment": "🔴 The payment has not been completed, so we are canceling the current session."
 }

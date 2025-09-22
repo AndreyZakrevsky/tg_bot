@@ -1,14 +1,17 @@
 {
-  "name": "BOT",
+  "name": "BOT_TG",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "type": "module",
   "scripts": {
     "dev": "nodemon src/index.js",
-    "start": "pm2 start src/index.js",
-    "stop": "pm2 stop my-app",
-    "delete": "pm2 delete all",
+    "pm2:start": "pm2 start ecosystem.config.cjs && pm2 logs",
+    "pm2:stop": "pm2 stop ecosystem.config.cjs",
+    "pm2:restart": "pm2 restart ecosystem.config.cjs && pm2 logs",
+    "pm2:delete": "pm2 delete ecosystem.config.cjs && sleep 2 && pm2 flush",
+    "pm2:logs": "pm2 logs",
+    "pm2:flush": "pm2 flush",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
@@ -22,7 +25,6 @@
     "luxon": "^3.7.2",
     "nodemon": "^3.1.10",
     "path": "^0.12.7",
-    "pm2": "^6.0.11",
     "telegraf": "^4.16.3",
     "telegraf-session-local": "^2.1.1",
     "uuid": "^13.0.0"
