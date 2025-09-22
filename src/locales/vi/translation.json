@@ -1,0 +1,23 @@
+{
+  "welcome": "Xin chào! Tôi là {{botName}}, sẵn sàng hỗ trợ bạn! Để xem menu bất kỳ lúc nào, hãy nhập /menu",
+  "chooseAction": "Chọn hành động",
+  "clearSessionSuccess": "Bạn đã thành công đóng phiên trước đó.",
+  "clearDailyBalancePrompt": "Bạn có chắc chắn muốn xóa số dư hàng ngày đã lưu không?\nNếu đồng ý, nhấn vào /clear_balances",
+  "checkDailyBalance": "Kiểm tra số dư hàng ngày",
+  "clearDailyBalance": "Xóa số dư hàng ngày",
+  "clearSession": "Xóa phiên",
+  "sessionInProgress": "🔴 Phiên giao dịch trước đang được xử lý. Điều này có thể mất đến {{time}} phút, và bạn không thể tạo phiên mới cho đến khi phiên trước hoàn tất, hoặc bạn có thể đóng nó /menu",
+  "sessionStillRunning": "🔴 Phiên giao dịch trước đang được xử lý, hãy xoá nó để chọn sàn giao dịch /menu",
+  "amountRequest": "Bạn đã chọn sàn giao dịch {{exchange}}, vui lòng nhập số tiền.",
+  "invalidAmount": "🔴 Vui lòng nhập giá trị hợp lệ cho số tiền.",
+  "enteredAmount": "Bạn đã nhập {{amount}} VND, số tiền cần thanh toán là {{convertedValue}} USDT 💰",
+  "balanceChanged": "Số dư đã thay đổi, bạn đã nhận được {{difference}} USDT 🚀",
+  "sessionStarted": "Phiên giao dịch đã bắt đầu! Đang chờ thanh toán {{convertedValue}} USDT. Phiên sẽ kết thúc sau {{time}} phút 🕐",
+  "dailyBalance": "Tổng số dư hàng ngày {{substrName}} là {{total}} VND \n\n{{transactions}}",
+  "priceChanged": "❇️ Giá cho VND đã thay đổi, giá hiện tại VND/USDT là {{price}}",
+  "selectExchange": "Đầu tiên, hãy chọn sàn giao dịch bằng cách sử dụng /menu",
+  "selectLanguage": "Chọn ngôn ngữ",
+  "invalidAction": "Hành động không hợp lệ.",
+  "nothingOnBalanceSheet": "Hiện tại bạn không có mục nào trong bảng cân đối của mình.",
+  "errorFileNotFound": "Lỗi: Không tìm thấy tệp - {{filePath}}"
+}

@@ -1,0 +1,23 @@
+{
+  "welcome": "Hi there! I'm {{botName}}, ready to assist you! To see the menu at any time, type /menu",
+  "chooseAction": "Сhoose action",
+  "clearSessionSuccess": "You successfully closed the previous session.",
+  "clearDailyBalancePrompt": "Are you sure you want to clear the saved daily balances?\nIf yes, click: /clear_balances",
+  "checkDailyBalance": "Check daily balance",
+  "clearDailyBalance": "Clear daily balance",
+  "clearSession": "Clear session",
+  "sessionInProgress": "🔴 The previous session is being processed. This may take up to {{time}} minutes, and you cannot create a new one until it is completed, or you can close it /menu",
+  "sessionStillRunning": "🔴 Previous session is still running, clear it to choose the exchange /menu",
+  "amountRequest": "You selected {{exchange}} exchange, put amount please.",
+  "invalidAmount": "🔴 Please input a valid numeric value for the amount.",
+  "enteredAmount": "You entered {{amount}} VND, so the amount to pay is {{convertedValue}} USDT 💰",
+  "balanceChanged": "The balance has changed, you received {{difference}} USDT 🚀",
+  "sessionStarted": "Session started! Waiting for payment of {{convertedValue}} USDT. Session will end in {{time}} minutes 🕐",
+  "dailyBalance": "The total daily balance {{substrName}} is {{total}} VND \n\n{{transactions}}",
+  "priceChanged": "❇️ The price for VND has changed, current price VND/USDT is {{price}}",
+  "selectExchange": "First, select an exchange using the /menu",
+  "selectLanguage": "Select a language",
+  "invalidAction": "Invalid action.",
+  "nothingOnBalanceSheet": "You currently have no entries on your balance sheet.",
+  "errorFileNotFound": "Error: File not found - {{filePath}}"
+}
