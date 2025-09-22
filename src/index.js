@@ -19,8 +19,9 @@ i18next.use(Backend).init({
     },
 });
 
+const sessionFilePath = process.env.SESSION_FILE_PATH || 'session.json';
 const localSessionConfig = {
-    database: 'session.json',
+    database: sessionFilePath,
     format: {
         serialize: (obj) => JSON.stringify(obj, null, 2),
         deserialize: (str) => JSON.parse(str),
@@ -100,7 +101,8 @@ class BotHandler {
         await ctx.reply(this.translate('enteredAmount', { amount: userInput, convertedValue }));
         await ctx.replyWithPhoto({ source: filePath });
         await ctx.reply(this.translate('sessionStarted', { convertedValue, time: Math.floor(MAX_CHECKING_DURATION / 60000) }));
-        this._setDailyBalances(ctx, userInput);
+        // NOTE: For testing purposes only!
+        //this._setDailyBalances(ctx, userInput);
 
         this._checkBalance(ctx, convertedValue, userInput);
     }

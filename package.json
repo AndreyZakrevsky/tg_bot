@@ -10,6 +10,7 @@
     "pm2:stop": "pm2 stop ecosystem.config.cjs",
     "pm2:restart": "pm2 restart ecosystem.config.cjs && pm2 logs",
     "pm2:delete": "pm2 delete ecosystem.config.cjs && sleep 2 && pm2 flush",
+    "pm2:stop-delete": "pm2 stop <process-id-or-name> && pm2 delete <process-id-or-name> && sleep 2 && pm2 flush",
     "pm2:logs": "pm2 logs",
     "pm2:flush": "pm2 flush",
     "lint": "eslint .",
