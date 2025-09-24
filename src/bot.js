@@ -6,7 +6,7 @@ import LocalSession from 'telegraf-session-local';
 import { DateTime } from 'luxon';
 import i18next from 'i18next';
 import Backend from 'i18next-fs-backend';
-import { CryptoExchangeManager } from './cryptoExchange.service.js';
+import { CryptoExchangeManager } from './services/cryptoExchange.service.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -15,7 +15,7 @@ i18next.use(Backend).init({
     fallbackLng: 'en',
     preload: ['en', 'vi'],
     backend: {
-        loadPath: path.join(__dirname, '../locales/{{lng}}/translation.json'),
+        loadPath: path.join(__dirname, 'locales/{{lng}}/translation.json'),
     },
 });
 
@@ -72,7 +72,7 @@ export class TgBot {
             console.log('SOME ERROR', error.message);
         }
 
-        ctx.reply(this.translate('cancelSessionDueToNoPayment'));
+        if (this.sessionFreezed) ctx.reply(this.translate('cancelSessionDueToNoPayment'));
         this._clearSession();
     }
 
@@ -92,7 +92,7 @@ export class TgBot {
     async _startSession(ctx, userInput) {
         this.sessionFreezed = true;
         const convertedValue = this._roundUpSecondDecimal(Number(userInput) / (this.price || VND_PRICE));
-        const filePath = path.join(__dirname, '../assets', `${this.currentExchange}.jpg`);
+        const filePath = path.join(__dirname, 'assets', `${this.currentExchange}.jpg`);
 
         await ctx.reply(this.translate('enteredAmount', { amount: userInput, convertedValue }));
         await ctx.replyWithPhoto({ source: filePath });
